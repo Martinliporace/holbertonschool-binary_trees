@@ -24,6 +24,7 @@ size_t tree_height_aux(const binary_tree_t *tree)
 {
 	size_t height_l = 0;
 	size_t height_r = 0;
+
 	height_l = tree_height_aux(tree->left);
 	height_r = tree_height_aux(tree->right);
 
