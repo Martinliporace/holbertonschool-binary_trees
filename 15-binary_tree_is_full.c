@@ -11,11 +11,10 @@ int binary_tree_is_full(const binary_tree_t *tree)
 {
 
 	int count = 0;
+	int leaves = binary_tree_leaves(tree);
 
 	if (tree == NULL)
 		return (0);
-
-	int leaves = binary_tree_leaves(tree);
 
 	if (leaves % 2 == 0)
 		count += 1;
