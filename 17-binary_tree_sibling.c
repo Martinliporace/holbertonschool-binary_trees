@@ -9,18 +9,11 @@
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 
 {
-	binary_tree_t *check_l = node->parent->left;
-	binary_tree_t *check_r = node->parent->right;
-
 	if (!node || node->parent == NULL)
 		return (NULL);
 
-	if (node != check_l)
-		return (check_l);
+	if (node->parent->left != node)
+		return (node->parent->left);
 
-	if (node != check_r)
-		return (check_r);
-
-	else
-		return (NULL);
+	return (node->parent->right);
 }
