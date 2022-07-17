@@ -11,12 +11,12 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 const binary_tree_t *second)
 
 {
-	if (!first || !second)
-		return (NULL);
-
 	int height_1 = binary_tree_height(first);
 	int height_2 = binary_tree_height(second);
 	const binary_tree_t *low, *high;
+
+	if (!first || !second)
+		return (NULL);
 
 	if (height_1 <= height_2)
 		{
@@ -50,11 +50,11 @@ const binary_tree_t *second)
 
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return (0);
-
 	int height_l = binary_tree_height(tree->left);
 	int height_r = binary_tree_height(tree->right);
+
+	if (tree == NULL)
+		return (0);
 
 	if (height_l >= height_r)
 		return (height_l + 1);
