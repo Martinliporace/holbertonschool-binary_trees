@@ -9,34 +9,14 @@
 int binary_tree_is_full(const binary_tree_t *tree)
 
 {
-
-	int count = 0;
-	int leaves = binary_tree_leaves(tree);
-
 	if (tree == NULL)
-		return (0);
+		return (1);
 
-	if (leaves % 2 == 0)
-		count += 1;
-
-	return (count);
-
-}
-
-/**
-* binary_tree_leaves-  counts the leaves in a binary tree
-* @tree: a pointer to the root node of the tree to measure the height.
-* Return: number of leaf
-*/
-
-size_t binary_tree_leaves(const binary_tree_t *tree)
-
-{
-	if (!tree)
-		return (0);
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
-	else
-		return (binary_tree_leaves(tree->left) +
-			binary_tree_leaves(tree->right));
+
+	if ((tree->right) && (tree->left))
+		return (binary_tree_is_full(tree->left) &&
+			binary_tree_is_full(tree->right));
+	return (0);
 }
