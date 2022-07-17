@@ -47,5 +47,6 @@ int measure(const binary_tree_t *tree);
 
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 const binary_tree_t *second);
+size_t tree_height_aux(const binary_tree_t *tree);
 
 #endif
