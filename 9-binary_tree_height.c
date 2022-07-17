@@ -8,30 +8,31 @@
 
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t height_l = binary_tree_height(tree->left);
-	size_t height_r = binary_tree_height(tree->right);
-
-	if (tree == NULL || binary_tree_is_leaf(tree))
+	if (tree == NULL)
 		return (0);
 
-	if (height_r >= height_l)
-		return (height_r + 1);
-
-	return (height_r + 1);
+	return (tree_height_aux(tree) - 1);
 }
 
 /**
-* binary_tree_is_leaf - checks if a node is a leaf
-* @node: Integer stored in the node
-* Return: 1 if node is a leaf, otherwise 0
+* tree_height_aux - auxiliar function for tree height
+* @tree: a pointer to the root node of the tree to measure the height.
+* Return: the height of a binary tree or 0 if tree is NULL
 */
 
-int binary_tree_is_leaf(const binary_tree_t *node)
+size_t tree_height_aux(const binary_tree_t *tree)
 {
-	if (node == NULL)
+	size_t height_l = 0;
+	size_t height_r = 0;
+
+	if (tree == NULL)
 		return (0);
-	if (node->left == NULL && node->right == NULL)
-		return (1);
-	else
-		return (0);
+
+	height_l = tree_height_aux(tree->left);
+	height_r = tree_height_aux(tree->right);
+
+	if (height_l > height_r)
+		return (height_l + 1);
+
+	return (height_r + 1);
 }
