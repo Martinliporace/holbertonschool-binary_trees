@@ -15,12 +15,12 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 	if (!node || node->parent == NULL)
 		return (NULL);
 
-		if (node != check_l)
-			return (check_l);
+	if (node != check_l)
+		return (check_l);
 
-		if (node != check_r)
-			return (check_r);
+	if (node != check_r)
+		return (check_r);
 
-		else
-			return (NULL);
+	else
+		return (NULL);
 }
