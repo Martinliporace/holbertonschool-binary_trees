@@ -21,7 +21,7 @@ const binary_tree_t *second)
 	if (first == second)
 		return ((binary_tree_t *)first);
 
-	if (height_1 <= height_2)
+	if (height_1 < height_2)
 		{
 		low = first;
 		high = second;
